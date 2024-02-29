@@ -22,7 +22,6 @@ def input_files(dir, ratio):
 
     label_dict = {i: j for i, j in enumerate(os.listdir(dir))}
     label_dict.pop(0)
-    #label_dict.pop(1)
 
     photo_paths = []
 
@@ -63,15 +62,3 @@ def input_files(dir, ratio):
 
 
     return norm_train, train_lbl, norm_test, test_lbl, label_dict, photo_paths
-
-
-
-
-#filename = '/Users/wuyufei/Desktop/Charlotte/intern/cnn/tf2.0/data1/'
-#ratio = 0.3
-#norm_train, train_lbl, norm_test, test_lbl, dict, photo_paths_dict = input_files(filename, ratio)
-#print(dict)
-
-
-
-
