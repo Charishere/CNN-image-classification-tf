@@ -17,8 +17,6 @@ def input_files(dir, ratio):
     norm_train = []
     norm_test = []
 
-    #n = 50
-    #n = 20
     n = 10
     frame  = n*ratio
 
