@@ -23,7 +23,6 @@ class CNN(tk.Tk):
         self.geometry("483x500")
         self.resizable(width=False, height=False)
 
-
         self.main_frame = tk.Frame(self, border=5)
         self.main_frame.grid(row=0, column=0)
         self.frame_p = tk.Frame(self.main_frame)
@@ -60,13 +59,13 @@ class CNN(tk.Tk):
 
         
 
-        ###classify
+        ###classify status
         status_fr = tk.Frame(self.frame_p)
         status_fr.grid(row=1, column=0, sticky="w") 
         model_lbl = tk.Label(status_fr, text='Model status:')
         model_lbl.grid(row=0,column=0,sticky="w", padx=0)
         self.status = tk.StringVar()
-        self.status.set("未识别")
+        self.status.set("Unclassified")
         status_lbl = tk.Label(status_fr, textvariable=self.status, fg='#D2691E')
         status_lbl.grid(row=0,column=1,sticky="w", padx=0)
 
@@ -521,9 +520,9 @@ class CNN(tk.Tk):
 
 
     def change_text(self):
-            self.status.set("识别完成")
+            self.status.set("Classification Completed")
     def not_change_text(self):
-            self.status.set("未识别")
+            self.status.set("Unclassified")
 
     def update_lbl(self):
         max_key = max(self.comp, key=lambda k: max(self.comp[k]))
