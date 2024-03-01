@@ -13,5 +13,7 @@ The operation interface is implemented for image recognition and classification 
 # Notes:
 * It may be necessary to adjust the size in the input_data.py file for optimal results.
 * Modify cnn_gui.py to the desired file name.
-* If not using macOS, please adjust the font in cnn_gui.py.
-  
+* If not using macOS, please adjust the font in cnn_gui.py and remove the following condition from cnn_gui.py and input_data.py.
+  ```
+  if not img.lower().endswith('.ds_store')
+  ```
