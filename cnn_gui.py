@@ -280,14 +280,11 @@ class CNN(tk.Tk):
                 if not train_img:
                    raise ValueError("Please select a folder first")
                 else:                    
-                    B1_0 = []
-                    B2_0 = []
-                    C1_5 = []
-                    C2_0 = []
-                    #f_202 = []
-                    #f_302 = []
-                    #f_402 = []
-                    #f_502 = []
+                    file_1 = []
+                    file_2 = []
+                    file_3 = []
+                    file_4 = []
+
                     for folder_name in os.listdir(train_img):
                         folder_path = os.path.join(train_img, folder_name)
                         if os.path.isdir(folder_path):
@@ -295,21 +292,17 @@ class CNN(tk.Tk):
                                 if not img.lower().endswith('.ds_store'):
                                     img_path = os.path.join(folder_path, img)
                                     name = img.split(sep='-')
-                                    if name[0] == 'B2.0':
-                                        B2_0.append(img_path)
-                                        #f_202.append(img_path)
-                                    elif name[0] == 'B1.0':
-                                        B1_0.append(img_path)
-                                        #f_302.append(img_path)
-                                    elif name[0] == 'C1.5':
-                                        C1_5.append(img_path)
-                                        #f_402.append(img_path)
+                                    if name[0] == 'file_1':
+                                        file_1.append(img_path)
+                                    elif name[0] == 'file_2':
+                                        file_2.append(img_path)
+                                    elif name[0] == 'file_3':
+                                        file_3.append(img_path)
                                     else:
-                                        C2_0.append(img_path)
-                                        #f_502.append(img_path)
-                    if all(len(lst) != 0 for lst in (B1_0, B2_0, C1_5, C2_0)):
+                                        file_4.append(img_path)
+                    if all(len(lst) != 0 for lst in (file_1, file_2, file_3, file_4)):
                         print('Train folder path:', train_img)
-                        return B1_0, B2_0, C1_5, C2_0, train_img
+                        return file_1, file_2, file_3, file_4, train_img
                     else:
                         messagebox.showerror('Error', 'Invalid folder')
 
@@ -322,14 +315,13 @@ class CNN(tk.Tk):
                 
         def ent_show(): 
             try:  
-                B1_0, B2_0, C1_5, C2_0, train_img = load_train()
-                s1 = len(B1_0)
-                s2 = len(B2_0)
-                s3 = len(C1_5)
-                s4 = len(C2_0)
+                file_1, file_2, file_3, file_4, train_img = load_train()
+                s1 = len(file_1)
+                s2 = len(file_2)
+                s3 = len(file_3)
+                s4 = len(file_4)
                 ent_l1.delete(0, tk.END)
-                ent_l1.insert(tk.END, 'B1.0')
-                #ent_l1.insert(tk.END, '202')
+                ent_l1.insert(tk.END, 'file_1')
                 ent_l1.config(state="readonly")
                 ent_l1.config(readonlybackground='#696969')
                 ent_s1.delete(0, tk.END)
@@ -337,8 +329,7 @@ class CNN(tk.Tk):
                 ent_s1.config(state="readonly")
                 ent_s1.config(readonlybackground='#C0C0C0')
                 ent_l2.delete(0, tk.END)
-                ent_l2.insert(tk.END, 'B2.0')
-                #ent_l2.insert(tk.END, '302')
+                ent_l2.insert(tk.END, 'file_2')
                 ent_l2.config(state="readonly")
                 ent_l2.config(readonlybackground='#696969')
                 ent_s2.delete(0, tk.END)
@@ -346,8 +337,7 @@ class CNN(tk.Tk):
                 ent_s2.config(state="readonly")
                 ent_s2.config(readonlybackground='#C0C0C0')
                 ent_l3.delete(0, tk.END)
-                ent_l3.insert(tk.END, 'C1.5')
-                #ent_l3.insert(tk.END, '402')
+                ent_l3.insert(tk.END, 'file_3')
                 ent_l3.config(state="readonly")
                 ent_l3.config(readonlybackground='#696969')
                 ent_s3.delete(0, tk.END)
@@ -355,8 +345,7 @@ class CNN(tk.Tk):
                 ent_s3.config(state="readonly")
                 ent_s3.config(readonlybackground='#C0C0C0')
                 ent_l4.delete(0, tk.END)
-                ent_l4.insert(tk.END, 'C2.0')
-                #ent_l4.insert(tk.END, '502')
+                ent_l4.insert(tk.END, 'file_4')
                 ent_l4.config(state="readonly")
                 ent_l4.config(readonlybackground='#696969')
                 ent_s4.delete(0, tk.END)
